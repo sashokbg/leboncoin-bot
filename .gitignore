@@ -1,0 +1,7 @@
+*.swp
+.idea
+*.iml
+node_modules
+.node-persist
+output.json
+
