@@ -32,7 +32,6 @@ const fetchAds = async () => {
       console.log('ERROR', error);
     }
 
-    viberBot.sendMessage(body.ads[0]);
 
     for(ad of body.ads) {
       let found = persistedAds.find(element => { return element.list_id == ad.list_id});
@@ -41,6 +40,7 @@ const fetchAds = async () => {
         console.log('Found existing ad', ad.list_id);
       } else { 
         console.log('Found NEW ad', ad.list_id);
+        viberBot.sendMessage(ad);
       }
     }
 
