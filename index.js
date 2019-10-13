@@ -26,12 +26,14 @@ const fetchAds = async () => {
     gzip: true
   }
 
-
   request.post(options, async (error, response, body) => {
     if(error) {
       console.log('ERROR', error);
     }
 
+    if(response.statusCode != 200) {
+      viberBot.sendFail()
+    }
 
     for(ad of body.ads) {
       let found = persistedAds.find(element => { return element.list_id == ad.list_id});
