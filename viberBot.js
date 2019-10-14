@@ -61,7 +61,7 @@ module.exports = {
          },
          "tracking_data":"tracking data",
          "type":"text",
-         "text": JSON.stringify(adInfos)
+         "text": `ID: ${adInfos.id}\nPublished: ${adInfos.published}\nSubject: ${adInfos.subject}\nPrice: ${adInfos.price}\n${adInfos.url}`
       }
     }
   
