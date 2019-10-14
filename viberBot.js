@@ -38,6 +38,7 @@ module.exports = {
     let adInfos = {
       id: ad.list_id,
       published: ad.first_publication_date,
+      index_date: ad.index_date,
       subject: ad.subject,
       price: ad.price,
       url: ad.url
@@ -61,7 +62,7 @@ module.exports = {
          },
          "tracking_data":"tracking data",
          "type":"text",
-         "text": `ID: ${adInfos.id}\nPublished: ${adInfos.published}\nSubject: ${adInfos.subject}\nPrice: ${adInfos.price}\n${adInfos.url}`
+         "text": `ID: ${adInfos.id}\nPublished: ${adInfos.published}\nIndexed: ${adInfos.index_date}\nSubject: ${adInfos.subject}\nPrice: ${adInfos.price}\n${adInfos.url}`
       }
     }
   
