@@ -3,6 +3,22 @@ const searchPayload = require('./searchParams')
 const storage = require('node-persist')
 const viberBot = require('./viberBot')
 
+const sendAdMessage = (ad) => {
+  console.log('Sending New Ad Info', ad.list_id);
+
+  let adInfos = {
+    id: ad.list_id,
+    published: ad.first_publication_date,
+    index_date: ad.index_date,
+    subject: ad.subject,
+    price: ad.price,
+    location: ad.location.city_label,
+    url: ad.url
+  }
+
+  viberBot.sendMessage(adInfos);
+}
+
 const fetchAds = async () => {
   await storage.init();
 
@@ -42,6 +58,11 @@ const fetchAds = async () => {
 
     } else {
       for(ad of body.ads) {
+        if(process.env.BOT_DEBUG){
+          sendAdMessage(ad); 
+          break;
+        }
+
         await storage.setItem('connected', true)
 
         let found = persistedAds.find(element => { return element.list_id == ad.list_id});
@@ -49,8 +70,7 @@ const fetchAds = async () => {
         if(found) {
           console.log('Found existing ad', ad.list_id);
         } else {
-          console.log('Found NEW ad', ad.list_id);
-          viberBot.sendMessage(ad);
+          sendAdMessage(ad);
         }
       }
 
@@ -58,5 +78,7 @@ const fetchAds = async () => {
     }
   });
 }
+
+
 
 fetchAds().then();

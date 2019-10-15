@@ -33,16 +33,8 @@ module.exports = {
     })
   },
 
-  sendMessage: (ad) => {
+  sendMessage: (adInfos) => {
     console.log('Sending message via viber bot for ad:', ad);
-    let adInfos = {
-      id: ad.list_id,
-      published: ad.first_publication_date,
-      index_date: ad.index_date,
-      subject: ad.subject,
-      price: ad.price,
-      url: ad.url
-    }
 
     let options = {
       url: "https://chatapi.viber.com/pa/broadcast_message",
@@ -62,7 +54,13 @@ module.exports = {
          },
          "tracking_data":"tracking data",
          "type":"text",
-         "text": `ID: ${adInfos.id}\nPublished: ${adInfos.published}\nIndexed: ${adInfos.index_date}\nSubject: ${adInfos.subject}\nPrice: ${adInfos.price}\n${adInfos.url}`
+         "text": `ID:   ${adInfos.id}\n`+
+                  `Published: ${adInfos.published}\n`+
+                  `Indexed: ${adInfos.index_date}\n`+
+                  `Subject: ${adInfos.subject}\n`+
+                  `Price: ${adInfos.price}\n`+
+                  `Location: ${adInfos.location}\n`+
+                  `URL: ${adInfos.url}`
       }
     }
   
