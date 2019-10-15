@@ -54,7 +54,7 @@ module.exports = {
          },
          "tracking_data":"tracking data",
          "type":"text",
-         "text": `ID:   ${adInfos.id}\n`+
+         "text":  `ID: ${adInfos.id}\n`+
                   `Published: ${adInfos.published}\n`+
                   `Indexed: ${adInfos.index_date}\n`+
                   `Subject: ${adInfos.subject}\n`+
