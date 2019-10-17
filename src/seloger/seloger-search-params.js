@@ -92,5 +92,5 @@ module.exports = {
     "sort": [
         11
     ]
-}
+};
 

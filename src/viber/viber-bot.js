@@ -46,7 +46,7 @@ module.exports = {
   },
 
   sendMessage: (adInfos) => {
-    console.log('Sending message via viber bot for ad:', ad);
+    console.log('Sending message via viber bot for ad:', adInfos);
 
     options.json.text = `ID: ${adInfos.id}\n`+
                 `Published: ${adInfos.published}\n`+
@@ -58,7 +58,7 @@ module.exports = {
 
     request.post(options, (err, res, body) => {
       if(err) {
-        console.log('ERROR', error);
+        console.log('ERROR', err);
       } else {
         console.log('Message sent:', body);
       }
