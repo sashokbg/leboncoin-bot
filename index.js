@@ -20,6 +20,7 @@ const sendAdMessage = (ad) => {
 }
 
 const fetchAds = async () => {
+  console.log(`${new Date().toLocaleString()}: Starting`);
   await storage.init();
 
   let persistedAds = await storage.getItem('ads');
@@ -41,6 +42,8 @@ const fetchAds = async () => {
   }
 
   request.post(options, async (error, response, body) => {
+    let connected = await storage.getItem('connected');
+
     if(error) {
       console.log('ERROR', error);
     }
@@ -48,10 +51,9 @@ const fetchAds = async () => {
     if(response.statusCode != 200) {
       console.log('Request Failed:', body);
 
-      let connected = await storage.getItem('connected');
 
       if(connected) {
-        viberBot.sendFail()
+        viberBot.sendFail('Leboncoin')
         await storage.setItem('connected', false)
       }
 
@@ -63,6 +65,9 @@ const fetchAds = async () => {
           break;
         }
 
+        if(!connected){
+          viberBot.sendReconnect('Leboncoin');
+        }
         await storage.setItem('connected', true)
 
         let found = persistedAds.find(element => { return element.list_id == ad.list_id});

@@ -18,7 +18,9 @@ const sendAdMessage = (ad) => {
 
   viberBot.sendMessage(adInfos);
 }
+
 const fetchAds = async () => {
+    console.log(`${new Date().toLocaleString()}: Starting`);
     await storage.init();
 
     let persistedAds = await storage.getItem('seloger_ads');
@@ -50,7 +52,7 @@ const fetchAds = async () => {
             let connected = await storage.getItem('seloger_connected');
             
             if(connected) {
-                viberBot.sendFail()
+                viberBot.sendFail('Seloger')
                 await storage.setItem('seloger_connected', false)
             }
 
