@@ -3,8 +3,6 @@ const storage = require('node-persist');
 const viberBot = require('./viber/viber-bot');
 
 class Bot {
-    botConfig = {};
-    botName = '';
 
     constructor(botName, botConfig) {
         this.botName = botName;
