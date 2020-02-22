@@ -1,4 +1,4 @@
-const selogerSearchParams = require('./seloger-search-params.elise')
+const selogerSearchParams = require('./seloger-search-params.rudi')
 
 module.exports = {
   matches: (element, ad) => {

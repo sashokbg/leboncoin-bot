@@ -1,4 +1,4 @@
-const lebonCoinSearchParams = require('./leboncoin-search-params.elise')
+const lebonCoinSearchParams = require('./leboncoin-search-params.rudi')
 
 module.exports = {
   matches: (element, ad) => {
