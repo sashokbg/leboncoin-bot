@@ -44,15 +44,17 @@ class Bot {
 
       } else {
         let ads = this.botConfig.getAds(body);
+
+        if (!connected) {
+          viberBot.sendReconnect(this.botName);
+        }
+
         for (let ad of ads) {
           if (process.env.BOT_DEBUG) {
             sendAdMessage(ad);
             break;
           }
 
-          if (!connected) {
-            viberBot.sendReconnect(this.botName);
-          }
           await storage.setItem(`${this.botName}-connected`, true)
 
           let found = persistedAds.find((element) => {
