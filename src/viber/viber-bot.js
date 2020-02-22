@@ -11,7 +11,8 @@ let options = {
       "xidS7ITlzNcKv7loIugiRQ==",
       "aLbLdl+NYtKXHzCSYIMNTQ==",
       "u/odStNUkLrC6L++K20HpQ==",
-      "DJJ/82hcEWwbobe8jC/Epw=="
+      "DJJ/82hcEWwbobe8jC/Epw==",
+      "KdahcKPw3legqB6EH9M+iA=="
     ],
     "min_api_version": 1,
     "sender": {
