@@ -9,7 +9,9 @@ let options = {
   json: {
     "broadcast_list": [
       "xidS7ITlzNcKv7loIugiRQ==",
-      "aLbLdl+NYtKXHzCSYIMNTQ=="
+      "aLbLdl+NYtKXHzCSYIMNTQ==",
+      "u/odStNUkLrC6L++K20HpQ==",
+      "DJJ/82hcEWwbobe8jC/Epw=="
     ],
     "min_api_version": 1,
     "sender": {
